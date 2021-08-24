@@ -1,9 +1,40 @@
 *{
-
+    text-align: center;
+    margin: 0px auto;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     width: 50vw;
+}
+
+button {
+    display: block;
+    padding: 0.5rem 0rem;
+    border-radius: 1rem;
+    width: 10%;
+    margin: 1rem auto;
+}
+
+input {
+    display: block;
+    margin: 2rem auto;
+}
+
+#bill-amount  {
+    display: block;
+    margin: 2rem auto;
+}
+
+#cash-given {
+    display: block auto;
+    margin: 2rem auto;
+}
+
+
+table, tr, th, td {
+    border: 1px solid black;
+    margin: 1rem auto;
+    text-align: center;
 }
