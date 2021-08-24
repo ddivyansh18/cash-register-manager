@@ -2,16 +2,31 @@ const billAmount = document.querySelector("#bill-amount");
 const cashGiven = document.querySelector("#cash-given");
 const checkButton = document.querySelector("#check-button");
 const message = document.querySelector("#error-message")
-const availableNotes = [2000, 500, 100, 50, 10, 5, 1]
+const availableNotes = [2000, 500, 100, 20, 10, 5, 1]
 const noOfNotes = document.querySelectorAll(".no-of-notes")
 
-console.log(cashGiven)
+function isNumber(inputValue) {
+    return !isNaN(inputValue) && !isNaN(parseFloat(inputValue));
+}
+
 
 checkButton.addEventListener("click", function validateBillAndCashAmount() {
     hideMessage();
+
+    console.log("billAmountCheck ",!isNumber(billAmount.value))
+    console.log("cashGivenCheck ",!isNumber(cashGiven.value))
+
+    if(!isNumber(billAmount.value) || !isNumber(cashGiven.value)) {
+        console.log("Returning")
+        showMessage("Input should be a valid integer");
+    } else {
+        hideMessage();
+    }
+    
     if(billAmount.value > 0) {
-        if(cashGiven.value >= billAmount.value) {
-            const amountToBeReturned = cashGiven.value - billAmount.value;
+        if(parseInt(cashGiven.value) >= parseInt(billAmount.value)) {
+            console.log("Entered here")
+            const amountToBeReturned = parseInt(cashGiven.value) - parseInt(billAmount.value);
             calculateChange(amountToBeReturned);
         } else {
             showMessage("Cash provided should be atleast equal to bill amount");
